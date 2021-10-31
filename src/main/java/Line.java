@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.List;
+
 public class Line {
 
     /**
@@ -14,5 +17,12 @@ public class Line {
     public String getName(){
         return name;
     }
+
+
+    private List<Station> stationList=new LinkedList<>();
+
+
+
+
 
 }

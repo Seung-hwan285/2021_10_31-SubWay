@@ -5,7 +5,8 @@ public class Application {
 
 
 
-        new StationRepository().makeStation();
+        StationRepository stationRepository=new StationRepository();
+
 
     }
 }
