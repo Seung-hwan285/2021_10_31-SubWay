@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class printScreen {
 
 
@@ -26,5 +28,12 @@ public class printScreen {
 
     public static void printInputStationName() {
         System.out.println("## 등록할 역 이름을 입력하세요.");
+    }
+
+    public static void printStationList(List<Station> stationList){
+        System.out.println("역 목록");
+        for(int i=0; i<stationList.size(); i++){
+            System.out.println(stationList.get(i));
+        }
     }
 }

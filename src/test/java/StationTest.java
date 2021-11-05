@@ -23,13 +23,13 @@ import static org.junit.jupiter.api.Assertions.*;
 public class StationTest {
 
     private StationRepository stationRepository;
-    private Station s=new Station("판역");
-
+    private final Station s=new Station("판역");
+    private  SubwayMangement subwayMangement;
 
     @Test
     void 초기(){
         stationRepository=new StationRepository();
-
+        subwayMangement=new SubwayMangement();
     }
 
     @Test
@@ -40,12 +40,16 @@ public class StationTest {
         stationRepository.printStation();
     }
 
-
     @Test
     void 글자수체크(){
         assertTrue(stationRepository.checkNameLen("광교"));
     }
 
+
+    @Test
+    void 화면출력(){
+        subwayMangement.start();
+    }
 
 
 }
