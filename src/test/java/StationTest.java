@@ -46,10 +46,4 @@ public class StationTest {
     }
 
 
-    @Test
-    void 화면출력(){
-        subwayMangement.start();
-    }
-
-
 }

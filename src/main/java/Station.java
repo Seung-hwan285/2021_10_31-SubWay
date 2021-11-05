@@ -2,7 +2,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class Station {
 
-    // list가 한개 잇어야함
+    /**
+     * 사용자 입력
+     * 1. 사용자 입력 (번호,역 이름)
+     */
 
     private String name;
     private ArrayList<Station> stations=new ArrayList<>();
@@ -14,12 +17,14 @@ public class Station {
     }
 
 
-    //사용자 입력
+    //1. 사용자 입력 (번호,역 이름)
     public String geInput() {
-        return sc.nextLine();
+        String name=sc.nextLine();
+        return name;
+
     }
 
-
+    // 역이름 반환
     public String getName(){
         return name;
     }
