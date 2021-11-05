@@ -41,6 +41,11 @@ public class StationTest {
     }
 
 
+    @Test
+    void 글자수체크(){
+        assertTrue(stationRepository.checkNameLen("광교"));
+    }
+
 
 
 }

@@ -49,6 +49,11 @@ public class StationRepository {
         return true;
     }
 
+    //5. 역글자 제한
+    public static boolean checkNameLen(String name){
+        return name.length() >=2;
+    }
+
 
 
 
