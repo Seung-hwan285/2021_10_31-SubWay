@@ -21,7 +21,10 @@ public class LineRepository {
     }
 
     public static void addLine(String linename,String first,String second) {
-        lines.add(new Line(linename,first,second));
+        if(!isDuplicateLine(linename)){
+            lines.add(new Line(linename,first,second));
+
+        }
 
     }
 
@@ -55,10 +58,10 @@ public class LineRepository {
         for(Line line : lines){
             if(line.getName().contains(name)){
                 System.out.println(name+"노선 이름 중복됩니다.");
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     //3. 이름은 2글자이상이어ㅑ한다
