@@ -8,12 +8,12 @@ public class StationRepository {
 
     /**
      * 지하철역
-     * 1. 교대,강남,역삼,남부터미널,양재,양재시민,매봉 -> enum
-     * 2. 지하철 역을 등록하고 삭제할 수 있다
-     * 3. 지하철 역의 목록을 조회 할 수 있다
-     * 4. 중복된 지하철 역 이름이 등록될 수 없다
-     * 5. 역 이름 2글자 제한
-     * 6. 역 비어있는지 체크
+     *
+     * 1. 지하철 역을 등록하고 삭제할 수 있다
+     * 2. 지하철 역의 목록을 조회 할 수 있다
+     * 3. 중복된 지하철 역 이름이 등록될 수 없다
+     * 4. 역 이름 2글자 제한
+     * 5. 역 비어있는지 체크
      *
      */
 
@@ -21,6 +21,7 @@ public class StationRepository {
 
 
     public static List<Station> retrieveStation(){
+
         return Collections.unmodifiableList(stations);
     }
 
@@ -34,9 +35,12 @@ public class StationRepository {
 
     // 2. 지하철 역을 등록
     public static void addStation(Station station){
-        stations.add(station);
 
-        // 추가한 역 이름 출력
+        // 중복체크
+        // 리스트에 값이 없으면 추가
+        if (!isDuplciate(station.getName()) && checkNameLen(station.getName())) {
+            stations.add(station);
+        }
 
     }
 
@@ -52,7 +56,6 @@ public class StationRepository {
         }
     }
 
-
     public static void printStationList(List<Station> stationList){
         System.out.println("역 목록");
         for(int i=0; i<stationList.size(); i++){
@@ -60,20 +63,26 @@ public class StationRepository {
         }
     }
     // 4. 중복된 지하철 역 이름이 등록될 수 있다
-    public static boolean isDuplicate(String name){
-        if(!retrieveStation().contains(name)){
-            return false;
+    public static boolean isDuplciate(String name){
+        for(Station s: stations){
+            //중복있음
+            if(s.getName().contains(name)){
+                System.out.println(name+"지하철 역 중복 이름 입니다.");
+                return true;
+            }
         }
-        return true;
+        //중복없음
+        return false;
     }
 
     //5. 역글자 제한
     public static boolean checkNameLen(String name){
-        return name.length() >=2;
+
+        if (name.length() >= 3){
+            System.out.println("글자수 2이하로 맞춰주세요");
+            return false;
+        }
+        return true;
     }
-
-
-
-
 
 }

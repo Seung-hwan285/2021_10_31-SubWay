@@ -43,22 +43,21 @@ public class SubwayMangement {
         if(name.equals("1")){
             printScreen.printStationManagementScreen();
             name=sc.nextLine();
+
             // 1번은 역 등록
             if(name.equals("1")){
                     System.out.println("## 등록할 역 이름을 입력하세요.");
                     // 지하철역 추가
                     name=sc.nextLine();
                     StationRepository.addStation(new Station(name));
-                    StationRepository.printStation();
-                }
-
+            }
 
             else if(name.equals("2")){
                 System.out.println("## 삭제할 역 이름을 입력하세요");
                 name=sc.nextLine();
                 StationRepository.deleteStation(name);
-
             }
+
             else if(name.equals("3")){
                     System.out.println("## 역 목록");
                     // 역 목록 추가
@@ -67,17 +66,28 @@ public class SubwayMangement {
                         System.out.println("역이 비어있습니다.");
                     }
                     stationRepository.printStationList(stationRepository.retrieveStation());
-
-
-                }
+            }
             // 홈으로
             else if(name.equals("B")){
                 start();
             }
+
             // 1,2,3,B외에 다른 값이 들어오면 예외처리
-            else{
+            else {
                 throw new IllegalArgumentException("알맞은 번호를 입력해주세요");
+                }
             }
+
+            if(name.equals("2")){
+                printScreen.printLineManagementScreen();
+                name=sc.nextLine();
+                // 노션 등록
+                if(name.equals("1")){
+                    System.out.println("## 등록할 노션 이름을 입력하세요");
+                    name=sc.nextLine();
+                    System.out.println("## 등록할 노선의 상행 종점역 이름을 입력하세요");
+                    name=sc.nextLine();
+                }
             }
         }
     }

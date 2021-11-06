@@ -16,14 +16,6 @@ public class Station {
         this.name=name;
     }
 
-
-    //1. 사용자 입력 (번호,역 이름)
-    public String geInput() {
-        String name=sc.nextLine();
-        return name;
-
-    }
-
     // 역이름 반환
     public String getName(){
         return name;
