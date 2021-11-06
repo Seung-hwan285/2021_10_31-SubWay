@@ -87,6 +87,12 @@ public class SubwayMangement {
                     name=sc.nextLine();
                     System.out.println("## 등록할 노선의 상행 종점역 이름을 입력하세요");
                     name=sc.nextLine();
+                    System.out.println("## 등록할 노선의 하행 종점역 이름을 입력하세요");
+                    name=sc.nextLine();
+                }
+                if(name.equals("2")){
+                    System.out.println("## 삭제할 노선 이름을 입력하세요");
+                    name=sc.nextLine();
                 }
             }
         }

@@ -28,11 +28,31 @@ public class LineRepository {
         return lines.removeIf(line -> Objects.equals(line.getName(), name));
     }
 
-    // 노선 목록 출력
+    //1. 노선 목록 출력
     public static void printLineList(List<Line> lineList){
         for(int i=0; i<lineList.size(); i++){
             System.out.println(lineList.get(i).getName());
         }
+    }
+
+    //2. 중복된 노션 이름 체크
+    public static boolean isDuplicateLine(String name){
+        for(Line line : lines){
+            if(line.getName().contains(name)){
+                System.out.println(name+"노선 이름 중복됩니다.");
+                return false;
+            }
+        }
+        return true;
+    }
+
+    //3. 이름은 2글자이상이어ㅑ한다
+    public static boolean checkNameLine(String name){
+        if (name.length() <= 2){
+            System.out.println("글자수 길이 2이상으로 맞춰주세요");
+            return false;
+        }
+        return true;
     }
 
 

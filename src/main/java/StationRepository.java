@@ -25,7 +25,7 @@ public class StationRepository {
         return Collections.unmodifiableList(stations);
     }
 
-
+    // 5. 역 비어있는지 체크
     public static boolean isEmptyStation(List<Station> stationList){
         if(stationList.isEmpty()){
             return true;
@@ -62,6 +62,7 @@ public class StationRepository {
             System.out.println(stationList.get(i).getName());
         }
     }
+
     // 4. 중복된 지하철 역 이름이 등록될 수 있다
     public static boolean isDuplciate(String name){
         for(Station s: stations){
@@ -78,8 +79,8 @@ public class StationRepository {
     //5. 역글자 제한
     public static boolean checkNameLen(String name){
 
-        if (name.length() >= 3){
-            System.out.println("글자수 2이하로 맞춰주세요");
+        if (name.length() <= 2){
+            System.out.println("글자수 길이 2 이상으로 맞춰주세요");
             return false;
         }
         return true;

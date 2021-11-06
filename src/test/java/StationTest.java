@@ -25,11 +25,13 @@ public class StationTest {
     private StationRepository stationRepository;
     private final Station s=new Station("판역");
     private  SubwayMangement subwayMangement;
+    private LineRepository lineRepository;
 
     @Test
     void 초기(){
         stationRepository=new StationRepository();
         subwayMangement=new SubwayMangement();
+        lineRepository=new LineRepository();
     }
 
     @Test
@@ -42,8 +44,11 @@ public class StationTest {
 
     @Test
     void 글자수체크(){
-        assertTrue(stationRepository.checkNameLen("광교"));
+        assertTrue(stationRepository.checkNameLen("광교역"));
+
+        assertTrue(lineRepository.checkNameLine("강남역"));
     }
+
 
     @Test
     void 역비었는지체크(){
