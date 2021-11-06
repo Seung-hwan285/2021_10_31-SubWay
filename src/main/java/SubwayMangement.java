@@ -5,12 +5,15 @@ import java.util.Stack;
 
 public class SubwayMangement {
 
-    /**
+
+  /**
      *
      * 화면 출력 기능
      *
      * 1. strat메소드 번호 선택  -> printMainScreen 처음에 나오게 ,사용자 입력
      * 2. 각 번호에 대한 기능
+     * 3. 지하철 역 기능
+     * 4. 노선 기능
      *
      */
 
@@ -94,7 +97,9 @@ public class SubwayMangement {
                 }
                 else if(name.equals("2")){
                     System.out.println("## 삭제할 노선 이름을 입력하세요");
-                    name=sc.nextLine();
+                    String linename=sc.nextLine();
+                    LineRepository.deleteLineByName(linename);
+
                 }
 
                 else if(name.equals("3")){

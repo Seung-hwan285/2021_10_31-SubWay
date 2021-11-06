@@ -19,7 +19,9 @@ public class Line {
 
 
     public String getName(){
-        return name+firString+lasString;
+
+        return name+" "+firString+" "+lasString;
+
     }
 
 

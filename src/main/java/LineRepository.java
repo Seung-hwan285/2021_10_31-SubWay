@@ -40,7 +40,7 @@ public class LineRepository {
     }
 
     public static boolean deleteLineByName(String name) {
-        return lines.removeIf(line -> Objects.equals(line.getName(), name));
+        return lines.removeIf(lines -> Objects.equals(lines.getName(),name));
     }
 
     //1. 노선 목록 출력
