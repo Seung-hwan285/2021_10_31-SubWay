@@ -27,6 +27,9 @@ public class StationRepository {
     // 2. 지하철 역을 등록
     public static void addStation(Station station){
         stations.add(station);
+
+        // 추가한 역 이름 출력
+
     }
 
     // 2. 지하철 역을 삭제
@@ -41,6 +44,13 @@ public class StationRepository {
         }
     }
 
+
+    public static void printStationList(List<Station> stationList){
+        System.out.println("역 목록");
+        for(int i=0; i<stationList.size(); i++){
+            System.out.println(stationList.get(i).getName());
+        }
+    }
     // 4. 중복된 지하철 역 이름이 등록될 수 있다
     public static boolean isDuplicate(String name){
         if(!retrieveStation().contains(name)){

@@ -18,10 +18,5 @@ public class printScreen {
 
 
 
-    public static void printStationList(List<Station> stationList){
-        System.out.println("역 목록");
-        for(int i=0; i<stationList.size(); i++){
-            System.out.println(stationList.get(i));
-        }
-    }
+
 }

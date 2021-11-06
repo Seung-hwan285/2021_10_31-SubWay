@@ -6,8 +6,10 @@ public class Main {
     public static void main(String[] args) {
 
         SubwayMangement subwayMangement=new SubwayMangement();
-        subwayMangement.start();
 
+        while (true) {
+            subwayMangement.start();
+        }
 
-    }
+     }
 }

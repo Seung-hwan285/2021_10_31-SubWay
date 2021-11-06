@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class SubwayMangement {
 
@@ -10,6 +11,7 @@ public class SubwayMangement {
      *
      * 1. strat메소드 번호 선택  -> printMainScreen 처음에 나오게 ,사용자 입력
      * 2. 각 번호에 대한 기능
+     * 
      */
 
 
@@ -18,7 +20,8 @@ public class SubwayMangement {
     private  Station station;
     private User user;
     private final Scanner sc=new Scanner(System.in);
-    private List<Station> stationList=new ArrayList<>();
+    public static List<Station> stations=new ArrayList<>();
+
     public SubwayMangement(){
 
     }
@@ -50,12 +53,33 @@ public class SubwayMangement {
                     // 지하철역 추가
                     name=sc.nextLine();
                     StationRepository.addStation(new Station(name));
+                    StationRepository.printStation();
                     return;
                 }
-            }
-        printScreen.printStationList(stationList);
-        }
 
+
+            else if(name.equals("2")){
+                System.out.println("## 삭제할 역 이름을 입력하세요");
+                name=sc.nextLine();
+                StationRepository.deleteStation(name);
+                return;
+            }
+            else if(name.equals("3")){
+                    System.out.println("## 역 목록");
+                    // 역 목록 추가
+                    stationRepository.printStationList(stationRepository.retrieveStation());
+
+                }
+            // 홈으로
+            else if(name.equals("B")){
+                start();
+            }
+            // 1,2,3,B외에 다른 값이 들어오면 예외처리
+            else{
+                throw new IllegalArgumentException();
+            }
+            }
+        }
     }
 
 
