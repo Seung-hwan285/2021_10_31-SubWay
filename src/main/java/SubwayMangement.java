@@ -84,16 +84,23 @@ public class SubwayMangement {
                 // 노션 등록
                 if(name.equals("1")){
                     System.out.println("## 등록할 노션 이름을 입력하세요");
-                    name=sc.nextLine();
+                    String linename=sc.nextLine();
                     System.out.println("## 등록할 노선의 상행 종점역 이름을 입력하세요");
-                    name=sc.nextLine();
+                    String first=sc.nextLine();
                     System.out.println("## 등록할 노선의 하행 종점역 이름을 입력하세요");
-                    name=sc.nextLine();
+                    String second=sc.nextLine();
+
+                    LineRepository.addLine(linename,first,second);
                 }
-                if(name.equals("2")){
+                else if(name.equals("2")){
                     System.out.println("## 삭제할 노선 이름을 입력하세요");
                     name=sc.nextLine();
                 }
+
+                else if(name.equals("3")){
+                    LineRepository.printLine(LineRepository.lines());
+                }
+
             }
         }
     }

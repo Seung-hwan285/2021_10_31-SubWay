@@ -20,8 +20,23 @@ public class LineRepository {
         return Collections.unmodifiableList(lines);
     }
 
-    public static void addLine(Line line) {
-        lines.add(line);
+    public static void addLine(String linename,String first,String second) {
+        lines.add(new Line(linename,first,second));
+
+    }
+
+
+    public void printLine(){
+        for(Line l : lines){
+            System.out.println(l.getName());
+        }
+    }
+
+    // 노션 추가한거 출력
+    public static void printLine(List<Line>lineList){
+        for(int i=0; i<lines.size(); i++){
+            System.out.println(lines.get(i).getName());
+        }
     }
 
     public static boolean deleteLineByName(String name) {
@@ -54,6 +69,7 @@ public class LineRepository {
         }
         return true;
     }
+
 
 
 
