@@ -13,6 +13,7 @@ public class StationRepository {
      * 3. 지하철 역의 목록을 조회 할 수 있다
      * 4. 중복된 지하철 역 이름이 등록될 수 없다
      * 5. 역 이름 2글자 제한
+     * 6. 역 비어있는지 체크
      *
      */
 
@@ -23,6 +24,13 @@ public class StationRepository {
         return Collections.unmodifiableList(stations);
     }
 
+
+    public static boolean isEmptyStation(List<Station> stationList){
+        if(stationList.isEmpty()){
+            return true;
+        }
+        return false;
+    }
 
     // 2. 지하철 역을 등록
     public static void addStation(Station station){

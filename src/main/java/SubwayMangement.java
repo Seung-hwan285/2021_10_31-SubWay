@@ -11,14 +11,14 @@ public class SubwayMangement {
      *
      * 1. strat메소드 번호 선택  -> printMainScreen 처음에 나오게 ,사용자 입력
      * 2. 각 번호에 대한 기능
-     * 
+     *
      */
 
 
     private StationRepository stationRepository;
     private static final printScreen printScreen=new printScreen();
     private  Station station;
-    private User user;
+
     private final Scanner sc=new Scanner(System.in);
     public static List<Station> stations=new ArrayList<>();
 
@@ -32,11 +32,7 @@ public class SubwayMangement {
 
     //1. strat메소드 번호 선택  -> printMainScreen 처음에 나오게 ,사용자 입력
     public void start(){
-        System.out.println("## 메인 화면");
-        System.out.println("1. 역 관리");
-        System.out.println("2. 노션 관리");
-        System.out.println("3. 구간 관리");
-        System.out.println("4. 지하철 노선도 출력력");
+        printScreen.mainPrint();
         String name=sc.nextLine();
         mainFunction(name);
     }
@@ -54,7 +50,6 @@ public class SubwayMangement {
                     name=sc.nextLine();
                     StationRepository.addStation(new Station(name));
                     StationRepository.printStation();
-                    return;
                 }
 
 
@@ -62,12 +57,17 @@ public class SubwayMangement {
                 System.out.println("## 삭제할 역 이름을 입력하세요");
                 name=sc.nextLine();
                 StationRepository.deleteStation(name);
-                return;
+
             }
             else if(name.equals("3")){
                     System.out.println("## 역 목록");
                     // 역 목록 추가
+
+                    if (stationRepository.isEmptyStation(stationRepository.retrieveStation())){
+                        System.out.println("역이 비어있습니다.");
+                    }
                     stationRepository.printStationList(stationRepository.retrieveStation());
+
 
                 }
             // 홈으로
@@ -76,7 +76,7 @@ public class SubwayMangement {
             }
             // 1,2,3,B외에 다른 값이 들어오면 예외처리
             else{
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("알맞은 번호를 입력해주세요");
             }
             }
         }

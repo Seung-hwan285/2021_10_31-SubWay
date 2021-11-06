@@ -45,5 +45,10 @@ public class StationTest {
         assertTrue(stationRepository.checkNameLen("광교"));
     }
 
+    @Test
+    void 역비었는지체크(){
+        List<Station> stationList=new LinkedList<>();
+        assertTrue(stationRepository.isEmptyStation(stationList));
+    }
 
 }
